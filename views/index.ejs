@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toys</title>
+    <link rel="stylesheet" href="mystyles.css">
 </head>
 <body>
 
-    <header>
-        <h1>Toys</h1>
-        <p>Web app is built using node, express and EJS</p>
-    </header>
+    <%- include('header') %>
 
     <main>
-        <p>This is some text to show markup and content</p>
+        <div class="grid-row">
+            <% mydata.forEach((toy) => { %>
+             <div class="grid-item">
+                <%= toy.title.slice(0, 30) %> <%# slice method removes characters - in this example its after 30 chars %>
+                <div class="b"><a href="<%= toy.url %>" target="_blank">
+                    <button>Buy</button>
+                </a></div>
+
+             </div>
+            <% }) %>
+        </div>    
     </main>
 
-    <footer>
-        <p>My website</p>
-    </footer>
+    <%- include('footer') %>
     
 </body>
 </html>
